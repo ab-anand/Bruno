@@ -3,7 +3,7 @@ import pyttsx
 import wikipedia
 import wolframalpha
 import os
-#os.environ["HTTPS_PROXY"] = "http://ipg_2015003:abhi%4098@192.168.1.107:3128"
+#os.environ["HTTPS_PROXY"] = "http://username:pass@192.168.1.107:3128"
 
 def speak(value):
     engine = pyttsx.init()
