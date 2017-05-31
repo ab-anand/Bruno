@@ -91,6 +91,7 @@ class MyFrame(wx.Frame):
                 webbrowser.open('http://www.'+link[1]+'.com')
             except:
                 print('Sorry, No Internet Connection!')
+                
 # Play Song on Youtube
         if put.startswith('play '):
             try:
@@ -107,6 +108,7 @@ class MyFrame(wx.Frame):
                 webbrowser.open('https://www.youtube.com'+hit)
             except:
                 print('Sorry, No internet connection!')
+                
 # Google Search
         if put.startswith('search '):
             try:
@@ -130,7 +132,7 @@ class MyFrame(wx.Frame):
 # News
         if put.startswith('science '):
             try:
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=1bb9352ea6964f539e39b431a3bcbda6''')
+                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=YOUR_API_KEY''')
                 data = json.load(jsonObj)
                 i = 1
                 speak.Speak('''Here are some top science
@@ -146,7 +148,7 @@ class MyFrame(wx.Frame):
 
         if put.startswith('headlines '):
             try:
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=1bb9352ea6964f539e39b431a3bcbda6''')
+                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=YOUR_API_KEY''')
                 data = json.load(jsonObj)
                 i = 1
                 speak.Speak('here are some top news from the times of india')
