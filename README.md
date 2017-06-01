@@ -30,7 +30,7 @@ Automating the daily stuffs
    - Say anything like 'open xyz'
 4. Empty recycle bin
    - Say 'empty the bin' or 'empty recycle bin'
-5. Science News
+5. New Scientist News
    - say 'science news'
 6. Times of India news
    - say 'headlines please'
