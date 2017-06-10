@@ -1,6 +1,6 @@
 import wx
 import os
-# os.environ["HTTPS_PROXY"] = "http://username:pass@192.168.1.107:3128"
+# os.environ["HTTPS_PROXY"] = "http://user:pass@192.168.1.107:3128"
 import wikipedia
 import wolframalpha
 import time
@@ -31,8 +31,15 @@ else:
 headers = {'''user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6)
            AppleWebKit/537.36 (KHTML, like Gecko)
            Chrome/53.0.2785.143 Safari/537.36'''}
+
 speak = wincl.Dispatch("SAPI.SpVoice")
-# time.sleep(2)
+
+# Requirements
+videos = ['Videos\\1.mp4', 'Videos\\2.mp4',
+          'Videos\\3.mp4', 'Videos\\4.mp4',
+          'Videos\\5.mp4', 'Videos\\6.mp4',
+          'Videos\\7.mp4']
+app_id = 'wolfram_API_here'
 
 
 # GUI creation
@@ -47,7 +54,7 @@ class MyFrame(wx.Frame):
 
         ico = wx.Icon('boy.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
-
+    
         my_sizer = wx.BoxSizer(wx.VERTICAL)
         lbl = wx.StaticText(panel,
                             label="Bienvenido Sir. How can I help you?")
@@ -91,9 +98,8 @@ class MyFrame(wx.Frame):
                 webbrowser.open('http://www.'+link[1]+'.com')
             except:
                 print('Sorry, No Internet Connection!')
-                
 # Play Song on Youtube
-        if put.startswith('play '):
+        elif put.startswith('play '):
             try:
                 link = '+'.join(link[1:])
                 say = link.replace('+', ' ')
@@ -108,9 +114,8 @@ class MyFrame(wx.Frame):
                 webbrowser.open('https://www.youtube.com'+hit)
             except:
                 print('Sorry, No internet connection!')
-                
 # Google Search
-        if put.startswith('search '):
+        elif put.startswith('search '):
             try:
                 link = '+'.join(link[1:])
                 say = link.replace('+', ' ')
@@ -119,20 +124,18 @@ class MyFrame(wx.Frame):
                 webbrowser.open('https://www.google.co.in/search?q='+link)
             except:
                 print('Sorry, No internet connection!')
-
 # Empty Recycle bin
-        if put.startswith('empty '):
+        elif put.startswith('empty '):
             try:
                 winshell.recycle_bin().empty(confirm=False,
                                              show_progress=False, sound=True)
                 print("Recycle Bin Empty!!")
             except:
                 print("Unknown Error")
-
 # News
-        if put.startswith('science '):
+        elif put.startswith('science '):
             try:
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=YOUR_API_KEY''')
+                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=your_API_here''')
                 data = json.load(jsonObj)
                 i = 1
                 speak.Speak('''Here are some top science
@@ -145,10 +148,9 @@ class MyFrame(wx.Frame):
                     i += 1
             except:
                 print('Sorry, No internet connection')
-
-        if put.startswith('headlines '):
+        elif put.startswith('headlines '):
             try:
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=YOUR_API_KEY''')
+                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=your_API_here''')
                 data = json.load(jsonObj)
                 i = 1
                 speak.Speak('here are some top news from the times of india')
@@ -160,29 +162,38 @@ class MyFrame(wx.Frame):
                     i += 1
             except Exception as e:
                 print(str(e))
-
 # Lock the device
-        if put.startswith('lock '):
+        elif put.startswith('lock '):
             try:
                 speak.Speak("locking the device")
                 ctypes.windll.user32.LockWorkStation()
             except Exception as e:
-                print(str(e))
-
+                print(str(e))      
 # Play videos in boredom
-        videos = ['Videos\\1.mp4', 'Videos\\2.mp4',
-                  'Videos\\3.mp4', 'Videos\\4.mp4',
-                  'Videos\\5.mp4', 'Videos\\6.mp4',
-                  'Videos\\7.mp4']
-
-        if put.endswith('bored'):
+        elif put.endswith('bored'):
             try:
                 speak.Speak('''Sir, I\'m playing a dance video.
                             Hope you like it''')
                 song = random.choice(videos)
                 os.startfile(song)
             except Exception as e:
-                print(str(e))
+                print(str(e))     
+# Other Cases
+        else:
+            try:
+                # wolframalpha
+                client = wolframalpha.Client(app_id)
+                res = client.query(put)
+                ans = next(res.results).text
+                print(ans)
+                speak.Speak(ans)
+            except:
+                # wikipedia
+                put = put.split()
+                put = ' '.join(put[2:])
+                #print(put)
+                print(wikipedia.summary(put))
+                speak.Speak('Searched wikipedia for '+put)
 
 
 # Trigger GUI
