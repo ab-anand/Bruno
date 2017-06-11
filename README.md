@@ -13,14 +13,16 @@ Automating the daily stuffs
    wxpython, speechrecognition, espeak, wolframalpha, wikipedia, requests, pyaudio.
 2. Get NEW SCIENTIST API from here : [New Scientist](https://newsapi.org/new-scientist-api)
 3. Get TIMES OF INDIA API from here : [Times of India](https://newsapi.org/the-times-of-india-api)
-4. Place the APIs at the right postition and run the program.
+4. Get the WOLFRAM API from here : [Wolfram](https://developer.wolframalpha.com/portal/signup.html)
+5. Place the APIs at the right postition and run the program.
 
 ### Windows 
 1. Install the modules
    wxpython, speechrecognition, wolframalpha, wikipedia, requests, pyaudio.
 2. Get NEW SCIENTIST API from here : [New Scientist](https://newsapi.org/new-scientist-api)
 3. Get TIMES OF INDIA API from here : [Times of India](https://newsapi.org/the-times-of-india-api)
-4. Place the APIs at the right postition and run the program.
+4. Get the WOLFRAM API from here : [Wolfram](https://developer.wolframalpha.com/portal/signup.html)
+5. Place the APIs at the right postition and run the program.
 
 
 ## Features present and accessing them:
