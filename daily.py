@@ -91,14 +91,14 @@ class MyFrame(wx.Frame):
             except:
                 print("Unknown exception occurred!")
 
-# Open a webpage
+        # Open a webpage
         if put.startswith('open '):
             try:
                 speak.Speak("opening "+link[1])
                 webbrowser.open('http://www.'+link[1]+'.com')
             except:
                 print('Sorry, No Internet Connection!')
-# Play Song on Youtube
+        # Play Song on Youtube
         elif put.startswith('play '):
             try:
                 link = '+'.join(link[1:])
@@ -114,7 +114,7 @@ class MyFrame(wx.Frame):
                 webbrowser.open('https://www.youtube.com'+hit)
             except:
                 print('Sorry, No internet connection!')
-# Google Search
+        # Google Search
         elif put.startswith('search '):
             try:
                 link = '+'.join(link[1:])
@@ -124,7 +124,7 @@ class MyFrame(wx.Frame):
                 webbrowser.open('https://www.google.co.in/search?q='+link)
             except:
                 print('Sorry, No internet connection!')
-# Empty Recycle bin
+        # Empty Recycle bin
         elif put.startswith('empty '):
             try:
                 winshell.recycle_bin().empty(confirm=False,
@@ -132,7 +132,7 @@ class MyFrame(wx.Frame):
                 print("Recycle Bin Empty!!")
             except:
                 print("Unknown Error")
-# News
+        # News
         elif put.startswith('science '):
             try:
                 jsonObj = urlopen('''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=your_API_here''')
@@ -162,14 +162,14 @@ class MyFrame(wx.Frame):
                     i += 1
             except Exception as e:
                 print(str(e))
-# Lock the device
+        # Lock the device
         elif put.startswith('lock '):
             try:
                 speak.Speak("locking the device")
                 ctypes.windll.user32.LockWorkStation()
             except Exception as e:
                 print(str(e))      
-# Play videos in boredom
+        # Play videos in boredom
         elif put.endswith('bored'):
             try:
                 speak.Speak('''Sir, I\'m playing a dance video.
@@ -178,7 +178,7 @@ class MyFrame(wx.Frame):
                 os.startfile(song)
             except Exception as e:
                 print(str(e))     
-# Other Cases
+        # Other Cases
         else:
             try:
                 # wolframalpha
