@@ -28,9 +28,8 @@ else:
     ssl._create_default_https_context = _create_unverified_https_context
 
 
-headers = {'''user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6)
-           AppleWebKit/537.36 (KHTML, like Gecko)
-           Chrome/53.0.2785.143 Safari/537.36'''}
+headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
+
 
 speak = wincl.Dispatch("SAPI.SpVoice")
 
@@ -96,8 +95,8 @@ class MyFrame(wx.Frame):
             try:
                 speak.Speak("opening "+link[1])
                 webbrowser.open('http://www.'+link[1]+'.com')
-            except:
-                print('Sorry, No Internet Connection!')
+            except Exception as e:
+                print(str(e))
         # Play Song on Youtube
         elif put.startswith('play '):
             try:
@@ -112,8 +111,8 @@ class MyFrame(wx.Frame):
                 hit = song['href']
                 speak.Speak("playing "+say)
                 webbrowser.open('https://www.youtube.com'+hit)
-            except:
-                print('Sorry, No internet connection!')
+            except Exception as e:
+                print(str(e))
         # Google Search
         elif put.startswith('search '):
             try:
@@ -122,16 +121,16 @@ class MyFrame(wx.Frame):
                 # print(link)
                 speak.Speak("searching on google for "+say)
                 webbrowser.open('https://www.google.co.in/search?q='+link)
-            except:
-                print('Sorry, No internet connection!')
+            except Exception as e:
+                print(str(e))
         # Empty Recycle bin
         elif put.startswith('empty '):
             try:
                 winshell.recycle_bin().empty(confirm=False,
                                              show_progress=False, sound=True)
                 print("Recycle Bin Empty!!")
-            except:
-                print("Unknown Error")
+            except Exception as e:
+                print(str(e))
         # News
         elif put.startswith('science '):
             try:
@@ -146,8 +145,8 @@ class MyFrame(wx.Frame):
                     print(str(i)+'. '+item['title']+'\n')
                     print(item['description']+'\n')
                     i += 1
-            except:
-                print('Sorry, No internet connection')
+            except Exception as e:
+                print(str(e))
         elif put.startswith('headlines '):
             try:
                 jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=your_API_here''')
