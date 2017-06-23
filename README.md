@@ -1,7 +1,5 @@
 # Digital-Assistants
 
-|Pypi version| |Build Status| |Python Versions| |percentagecov| |Requirements Status| |License| 
-
 ## Automating the daily stuffs
 
 ![](BRUNO.png)
