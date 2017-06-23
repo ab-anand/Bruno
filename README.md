@@ -7,16 +7,15 @@ Automating the daily stuffs
 [BRUNO | Features](https://www.youtube.com/playlist?list=PLVCy_WceGl-eIkIAIZbEGqP94UVryi86H)
 
 ## Installation
-### daily.py
-### Ubuntu
-1. Install the modules
-   wxpython, speechrecognition, espeak, wolframalpha, wikipedia, requests, pyaudio.
-2. Get NEW SCIENTIST API from here : [New Scientist](https://newsapi.org/new-scientist-api)
-3. Get TIMES OF INDIA API from here : [Times of India](https://newsapi.org/the-times-of-india-api)
-4. Get the WOLFRAM API from here : [Wolfram](https://developer.wolframalpha.com/portal/signup.html)
-5. Place the APIs at the right postition and run the program.
 
-### Windows 
+### daily.py
+
+### Requirements
+
+
+  - Windows
+  - Microsoft sapi 5
+ 
 1. Install the modules
    wxpython, speechrecognition, wolframalpha, wikipedia, requests, pyaudio.
 2. Get NEW SCIENTIST API from here : [New Scientist](https://newsapi.org/new-scientist-api)
@@ -45,4 +44,5 @@ Automating the daily stuffs
      then place the videos and change the name in the code.
      To access it say anything that ends with 'bored' like 'i'm getting bored'.
  
-
+## Note
+   Most of the features won't work on Ubuntu
