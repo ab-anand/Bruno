@@ -28,7 +28,8 @@ else:
     ssl._create_default_https_context = _create_unverified_https_context
 
 
-headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
+headers = {
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
 
 
 speak = wincl.Dispatch("SAPI.SpVoice")
@@ -53,7 +54,7 @@ class MyFrame(wx.Frame):
 
         ico = wx.Icon('boy.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
-    
+
         my_sizer = wx.BoxSizer(wx.VERTICAL)
         lbl = wx.StaticText(panel,
                             label="Bienvenido Sir. How can I help you?")
@@ -66,7 +67,6 @@ class MyFrame(wx.Frame):
         panel.SetSizer(my_sizer)
         self.Show()
         speak.Speak('''Welcome back Sir, Broono at your service.''')
-
 
     def OnEnter(self, event):
         put = self.txt.GetValue()
@@ -93,8 +93,8 @@ class MyFrame(wx.Frame):
         # Open a webpage
         if put.startswith('open '):
             try:
-                speak.Speak("opening "+link[1])
-                webbrowser.open('http://www.'+link[1]+'.com')
+                speak.Speak("opening " + link[1])
+                webbrowser.open('https://www.' + link[1] + '.com')
             except Exception as e:
                 print(str(e))
         # Play Song on Youtube
@@ -102,15 +102,15 @@ class MyFrame(wx.Frame):
             try:
                 link = '+'.join(link[1:])
                 say = link.replace('+', ' ')
-                url = 'https://www.youtube.com/results?search_query='+link
+                url = 'https://www.youtube.com/results?search_query=' + link
                 source_code = requests.get(url, headers=headers, timeout=15)
                 plain_text = source_code.text
                 soup = BeautifulSoup(plain_text, "html.parser")
                 songs = soup.findAll('div', {'class': 'yt-lockup-video'})
                 song = songs[0].contents[0].contents[0].contents[0]
                 hit = song['href']
-                speak.Speak("playing "+say)
-                webbrowser.open('https://www.youtube.com'+hit)
+                speak.Speak("playing " + say)
+                webbrowser.open('https://www.youtube.com' + hit)
             except Exception as e:
                 print(str(e))
         # Google Search
@@ -119,8 +119,8 @@ class MyFrame(wx.Frame):
                 link = '+'.join(link[1:])
                 say = link.replace('+', ' ')
                 # print(link)
-                speak.Speak("searching on google for "+say)
-                webbrowser.open('https://www.google.co.in/search?q='+link)
+                speak.Speak("searching on google for " + say)
+                webbrowser.open('https://www.google.co.in/search?q=' + link)
             except Exception as e:
                 print(str(e))
         # Empty Recycle bin
@@ -134,30 +134,32 @@ class MyFrame(wx.Frame):
         # News
         elif put.startswith('science '):
             try:
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=your_API_here''')
+                jsonObj = urlopen(
+                    '''https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=your_API_here''')
                 data = json.load(jsonObj)
                 i = 1
                 speak.Speak('''Here are some top science
                              news from new scientist''')
                 print('''             ================NEW SCIENTIST=============
-                      '''+'\n')
+                      ''' + '\n')
                 for item in data['articles']:
-                    print(str(i)+'. '+item['title']+'\n')
-                    print(item['description']+'\n')
+                    print(str(i) + '. ' + item['title'] + '\n')
+                    print(item['description'] + '\n')
                     i += 1
             except Exception as e:
                 print(str(e))
         elif put.startswith('headlines '):
             try:
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=your_API_here''')
+                jsonObj = urlopen(
+                    '''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=your_API_here''')
                 data = json.load(jsonObj)
                 i = 1
                 speak.Speak('here are some top news from the times of india')
                 print('''             ===============TIMES OF INDIA============'''
-                +'\n')
+                      + '\n')
                 for item in data['articles']:
-                    print(str(i)+'. '+item['title']+'\n')
-                    print(item['description']+'\n')
+                    print(str(i) + '. ' + item['title'] + '\n')
+                    print(item['description'] + '\n')
                     i += 1
             except Exception as e:
                 print(str(e))
@@ -167,7 +169,7 @@ class MyFrame(wx.Frame):
                 speak.Speak("locking the device")
                 ctypes.windll.user32.LockWorkStation()
             except Exception as e:
-                print(str(e))      
+                print(str(e))
         # Play videos in boredom
         elif put.endswith('bored'):
             try:
@@ -176,7 +178,7 @@ class MyFrame(wx.Frame):
                 song = random.choice(videos)
                 os.startfile(song)
             except Exception as e:
-                print(str(e))     
+                print(str(e))
         # Other Cases
         else:
             try:
@@ -190,13 +192,13 @@ class MyFrame(wx.Frame):
                 # wikipedia
                 put = put.split()
                 put = ' '.join(put[2:])
-                #print(put)
+                # print(put)
                 print(wikipedia.summary(put))
-                speak.Speak('Searched wikipedia for '+put)
+                speak.Speak('Searched wikipedia for ' + put)
 
 
 # Trigger GUI
 if __name__ == "__main__":
-        app = wx.App(True)
-        frame = MyFrame()
-        app.MainLoop()
+    app = wx.App(True)
+    frame = MyFrame()
+    app.MainLoop()
