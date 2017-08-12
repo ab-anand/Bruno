@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import wx
 import os
 # os.environ["HTTPS_PROXY"] = "http://user:pass@192.168.1.107:3128"
