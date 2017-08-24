@@ -1,2 +1,5 @@
 wolframaplpha
 wikipedia
+wxpython
+winshell
+requests
