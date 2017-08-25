@@ -3,3 +3,6 @@ wikipedia
 wxpython
 winshell
 requests
+ssl
+speech_recognition
+BeautifulSoup
