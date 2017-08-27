@@ -5,7 +5,7 @@
 ![](BRUNO.png)
 
 ## View the demo here
-[BRUNO | Features](https://www.youtube.com/playlist?list=PLVCy_WceGl-eIkIAIZbEGqP94UVryi86H)
+[![BRUNO | Features](bruno_youtube.png)](https://www.youtube.com/playlist?list=PLVCy_WceGl-eIkIAIZbEGqP94UVryi86H)
 
 ## Installation
 
