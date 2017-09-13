@@ -16,13 +16,15 @@
 
   - Windows
   - Microsoft sapi 5
+  - Python 3.x
  
-1. Install the modules
-   wxpython, speechrecognition, wolframalpha, wikipedia, requests, pyaudio.
+1. git clone https://github.com/ab-anand/Digital-Assistants.git
 2. Get NEW SCIENTIST API from here : [New Scientist](https://newsapi.org/new-scientist-api)
 3. Get TIMES OF INDIA API from here : [Times of India](https://newsapi.org/the-times-of-india-api)
 4. Get the WOLFRAM API from here : [Wolfram](https://developer.wolframalpha.com/portal/signup.html)
-5. Place the APIs at the right postition and run the program.
+5. Place the APIs at the right postition as mentioned in the program.
+6. cd Digital-Assistants 
+7. pip install -r requirements.txt
 
 
 ## Features present and accessing them:
