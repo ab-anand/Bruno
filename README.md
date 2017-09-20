@@ -48,4 +48,4 @@
      To access it say anything that ends with 'bored' like 'i'm getting bored'.
  
 ## Note
-   Most of the features won't work on Ubuntu
+   Most of the features won't work on Ubuntu & Python 2.x
