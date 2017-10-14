@@ -28,21 +28,21 @@
 
 
 ## Features present and accessing them:
-1. Google search
+1. <b>Google search</b>
    - Say anything like 'search xyz'.
-2. Play song on Youtube
+2. <b>Play song on Youtube</b>
    - Say anything like 'play xyz'
-3. Open any webpage
+3. <b>Open any webpage</b>
    - Say anything like 'open xyz'
-4. Empty recycle bin
+4. <b>Empty recycle bin</b>
    - Say 'empty the bin' or 'empty recycle bin'
-5. New Scientist News
+5. <b>New Scientist News</b>
    - say 'science news'
-6. Times of India news
+6. <b>Times of India news</b>
    - say 'headlines please'
-7. Locking the device
+7. <b>Locking the device</b>
    - say 'lock the device'
-8. Playing the offline videos
+8. <b>Playing the offline videos</b>
    - First you need to create a folder named Videos where your daily.py is present
      then place the videos and change the name in the code.
      To access it say anything that ends with 'bored' like 'i'm getting bored'.
