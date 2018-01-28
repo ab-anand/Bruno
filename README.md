@@ -29,23 +29,23 @@
 
 ## Features present and accessing them:
 - [x] <b>Google search</b>
-   - Say anything like 'search xyz'.
+   - Say anything like `search xyz`.
 - [x] <b>Play song on Youtube</b>
-   - Say anything like 'play xyz'
+   - Say anything like `play xyz`
 - [x] <b>Open any webpage</b>
-   - Say anything like 'open xyz'
+   - Say anything like `open xyz`
 - [x] <b>Empty recycle bin</b>
-   - Say 'empty the bin' or 'empty recycle bin'
+   - Say `empty the bin` or `empty recycle bin`
 - [x] <b>New Scientist News</b>
-   - say 'science news'
+   - say `science news`
 - [x] <b>Times of India news</b>
-   - say 'headlines please'
+   - say `headlines please`
 - [x] <b>Locking the device</b>
-   - say 'lock the device'
+   - say `lock the device`
 - [x] <b>Playing the offline videos</b>
    - First you need to create a folder named Videos where your daily.py is present
      then place the videos and change the name in the code.
-     To access it say anything that ends with 'bored' like 'i'm getting bored'.
+     To access it say anything that ends with `bored` like `i'm getting bored`
  
 ## Note
    Features works on Windows n Python 3.x
