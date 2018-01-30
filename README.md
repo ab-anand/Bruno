@@ -46,6 +46,8 @@
    - First you need to create a folder named Videos where your daily.py is present
      then place the videos and change the name in the code.
      To access it say anything that ends with `bored` like `i'm getting bored`
+- [x] <b> results from `wolfram` or `wikipedia`</b>
+   - say something like `what is voldemort database` or `who is sachin tendulkar` basically start with `what is` or `who is`
  
 ## Note
    Features works on Windows n Python 3.x
