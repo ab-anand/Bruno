@@ -14,9 +14,9 @@
 ### Requirements
 
 
-  - Windows
-  - Microsoft sapi 5
-  - Python 3.x
+  - <b>OS: Windows</b>
+  - <b>Microsoft sapi 5</b>
+  - <b>Python 3.x</b>
  
 1. `$ git clone https://github.com/ab-anand/Digital-Assistants.git`
 2. Get NEW SCIENTIST API from here : [New Scientist](https://newsapi.org/new-scientist-api)
