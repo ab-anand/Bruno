@@ -43,7 +43,7 @@
 - [x] <b>Locking the device</b>
    - say `lock the device`
 - [x] <b>Playing the offline videos</b>
-   - First you need to create a folder named Videos where your daily.py is present
+   - First you need to create a folder named <b>`Videos`</b> where your daily.py is present
      then place the videos and change the name in the code.
      To access it say anything that ends with `bored` like `i'm getting bored`
 - [x] <b> results from `wolfram` or `wikipedia`</b>
